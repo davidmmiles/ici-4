@@ -1,0 +1,133 @@
+#  Trajor init file.
+#Rocket ID to be stamped on output files:
+	ICI4
+#Rocket launched at:
+	19.02.2015:22:06:41
+#Rocket launched from:
+	Andøya, LP7
+#######################################
+#            Angles section           #
+#######################################
+#	Created based on magnetometer.exe result log files
+#D:\raketter\2015\ICI4\TM\z-axis.dat.log
+#	and
+#D:\raketter\2015\ICI4\TM\spin.dat.log
+#	Longitudinal fitted coefficients.
+#	Separated by lines, polynomial coefficients for
+#	ac(t) and wc(t), and scalar value t_0, for each time interval.
+#	Time Intervals:
+60.00        350.00       560.00    
+#Time Interval 60   350
+-0.116698806851807        -2.61709983280128e-06     1.98934688849339e-08      
+0.345616062313143         -3.61479120671153e-06     5.80451299069203e-09      
+78.953853504305        
+#Time Interval 350   560
+-0.119696453594842        9.83559784835619e-06      1.82420861828597e-09      
+0.343504633790128         5.67976789191259e-06      -5.11988314000942e-09     
+370.290697100863       
+#	Spin Model fitted coefficients:
+#	Separated by lines, polynomial coefficients for 
+#	ws(t) and scalar value t_0, for each time interval.
+#	Time Intervals:
+70.00        90.00        350.00       550.00    
+#Time Interval 70   90
+19.7743456085171          -5.92160282178067e-05     -7.7085336888828e-07      
+70.0430648017183       
+#Time Interval 90   350
+19.7577275533694          -7.25579329139357e-05     1.00718183003063e-07      
+175.00467437324        
+#Time Interval 350   550
+19.7448090844718          -7.92699452391288e-06     9.33465137648854e-09      
+449.957061230355       
+#---------------------------------------------#
+#	      Konstant koningsvektor:         #
+#---------------------------------------------#
+#  releasetime (sek), 65 km alt:
+#	57.9
+#  releasetime (sek), 45 km alt:
+	22
+#  H_x H_y H_z, komponenter normalisert slik at |H| = 1:
+#       0 0 0 hvis vi denne skal beregnes fra ross-filen:
+#	0.196665 -0.0620742 0.978504
+	0	0	0
+#---------------------------------------------#
+#	      Dato for magnetfelt             #
+#---------------------------------------------#
+#  YYYY MM DD:
+	2015 02 19	
+#---------------------------------------------#
+#    Konstant tillegg til vinkel phi_user     #
+#                grader                       #
+#---------------------------------------------#
+	225
+#---------------------------------------------#
+#           Brukeren gir vinkel ifølge RHS,   #
+#           fra x-akse mot y-akse             #
+#           1 hvis sant, 0 ellers             #
+#---------------------------------------------#
+	0
+
+
+#---------------------------------------------#
+#	       FILES SECTION		      #
+#---------------------------------------------#
+#---------------------------------------------#
+#          rossfil og kolonner:     	      #
+#          samt launcher lat og lon           #
+#---------------------------------------------#
+   	inp\ici4\ici4_act_trajor.dat
+   	1 2 3 4 5 6 7
+   	69.28812  16.04334
+#---------------------------------------------#
+#	       sol og måne		      #
+#---------------------------------------------#
+        inp\dum
+#---------------------------------------------#
+#	       akselerasjon		      #
+#---------------------------------------------#
+	inp\dum
+#---------------------------------------------#
+#	       apparent spinn	              #
+#	       samt ant. punkter i smooth     #
+#---------------------------------------------#
+   	inp\ici4\edtAppSpinFile.dat
+              10
+#---------------------------------------------#
+#	       magnetometer vinkler           #
+#      kol.nr for TMZ(=RocketX), TMX, TMY     #
+#---------------------------------------------#
+   	inp\ici4\mag-angles.dat
+              1 4 2 3
+#---------------------------------------------#
+#	       Eddy Correction                #
+#	       Payload Diameter (m)           #
+#	       Payload Thickness (m)          #
+#	       Material Conductivity          #
+#---------------------------------------------#
+              0.356
+              0.005
+              2.5974e7
+#---------------------------------------------#
+#	       Sun Sensor Time interval       #
+#---------------------------------------------#
+	1000   1000
+#---------------------------------------------#
+#             END OF FILE                     #
+#---------------------------------------------#
+
+Kommentarer til filene:
+rosscols[7]: Kolonnenummer som følger:
+	rosscols[0] = tid-kolonne
+	rosscols[1] = alt-kolonne
+	rosscols[2] = lat-kolonne
+	rosscols[3] = lon-kolonne
+	rosscols[4] = Vu-kolonne
+	rosscols[5] = Vv-kolonne
+	rosscols[6] = Vw-kolonne
+
+Sol-måne innfil, organisert: tid, soltheta [deg], solphi [deg], moontheta [deg], moonphi [deg].
+Theta og phi vinkler i inertielt roterende XYZ
+
+Akselerasjons-fil: tid, acc [g]
+
+Spinn-fil:  tid, spinn [Hz]
